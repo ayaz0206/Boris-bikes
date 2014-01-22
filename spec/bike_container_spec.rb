@@ -41,6 +41,21 @@ describe BikeContainer do
 		expect(holder.available_bikes).to eq([working_bike])
 	end
 
+	it "should not pass if it's not a bike" do
+		expect(holder.dock(holder)).to be_false
+	end
+
+
+	# it "should not release if it's empty" do
+	# 	# bike = Bike.new
+	# 	holder.dock(bike)
+	# 	not_empty = holder.bike_count
+	# 	holder.release(bike)
+	# 	holder.bike_count
+
+	# 	expect(holder.empty?).to eq([empty])
+	# end
+
 		def fill_holder(holder)
 			holder.capacity.times {holder.dock(Bike.new)}
 	end

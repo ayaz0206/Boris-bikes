@@ -20,12 +20,19 @@ module BikeContainer
 
 	def dock(bike)
 		raise "Station is full" if full?
+		return false if !bike.is_a?(Bike)
 		bikes << bike
 	end
 
 	def release(bike)
 		bikes.delete(bike)
 	end
+
+	# def empty?
+	# 	@bikes.count
+	# end
+
+
 
 	def full?
 		bike_count == capacity
